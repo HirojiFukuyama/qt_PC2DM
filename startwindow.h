@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QPainter>
 
 namespace Ui {
 class StartWindow;

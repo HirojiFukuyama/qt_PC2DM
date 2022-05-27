@@ -2,6 +2,7 @@
 #include "mainwindow.h"
 #include "ui_startwindow.h"
 #include <QPainter>
+#include <QStyleOption>
 
 StartWindow::StartWindow(QWidget *parent) :
     QWidget(parent),
