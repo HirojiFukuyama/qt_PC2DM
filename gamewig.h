@@ -7,7 +7,7 @@ class gameWig : public QWidget
 {
     Q_OBJECT
 public:
-    bool flag = true;
+    bool flag = false;
 
     explicit gameWig(QWidget *parent = nullptr);
     int hGrid, wGrid;
