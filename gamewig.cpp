@@ -1,14 +1,35 @@
 #include "gamewig.h"
 #include <QPainter>
-const int gridSize = 20;
+const int gridSize = 5;
+const int RATIO = 5;
 
 gameWig::gameWig(QWidget *parent) : QWidget(parent)
 {
     hGrid = height()/gridSize;
     wGrid = width()/gridSize;
     for(int i=1;i<=1500;i++)
-        for(int j=1;j<=1500;j++)
-            value[i][j]=rand()%2;
+        for(int j=1;j<=1500;j++) {
+            int tmp = rand()%RATIO;
+            if (tmp == 1) {
+                // 1/RATIO 生成细胞
+                value[i][j] = 1;
+            }
+            else
+                value[i][j] = 0;
+        }
+}
+
+void gameWig::init() {
+    for(int i=1;i<=1500;i++)
+        for(int j=1;j<=1500;j++) {
+            int tmp = rand()%RATIO;
+            if (tmp == 1) {
+                // 1/RATIO 生成细胞
+                value[i][j] = 1;
+            }
+            else
+                value[i][j] = 0;
+        }
 }
 
 
@@ -45,18 +66,32 @@ int gameWig::sum(int i, int j) {
 }
 
 void gameWig::evolve() {
+    // copy
+    for (int i = 0; i < 1505; ++i) {
+        for (int j = 0; j < 1505; ++j) {
+            tmpVal[i][j] = value[i][j];
+        }
+    }
+
     for (int i = 1; i <= 1500; ++i) {
         for (int j = 1; j <= 1500; ++j) {
             int tmp = sum(i,j);
-            if (tmp <= 2) {
-                if (value[i][j]) value[i][j] = 0;
+            if (tmp <= 1) {
+                if (value[i][j]) tmpVal[i][j] = 0;
             }
             else if (tmp == 3) {
-                if (!value[i][j]) value[i][j] = 1;
+                if (!value[i][j]) tmpVal[i][j] = 1;
             }
             else if (tmp >= 4) {
-                if (value[i][j]) value[i][j] = 0;
+                if (value[i][j]) tmpVal[i][j] = 0;
             }
+        }
+    }
+
+    // copy back
+    for (int i = 0; i < 1505; ++i) {
+        for (int j = 0; j < 1505; ++j) {
+            value[i][j] = tmpVal[i][j];
         }
     }
 }

@@ -12,6 +12,7 @@ public:
     explicit gameWig(QWidget *parent = nullptr);
     int hGrid, wGrid;
     int value[1505][1505];
+    int tmpVal[1505][1505];
 
     void init();
     void paintEvent(QPaintEvent* );

@@ -64,3 +64,10 @@ void MainWindow::on_pushButton_4_clicked()
     ui->widget->flag = false;
 }
 
+// 随机生成画面
+void MainWindow::on_pushButton_6_clicked()
+{
+    ui->widget->init();
+    ui->widget->update();
+}
+
