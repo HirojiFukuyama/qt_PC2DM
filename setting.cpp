@@ -24,7 +24,7 @@ void setting::on_buttonBox_accepted()
     int tmpH = ui->hSlider->value(); //默认561
     int tmpW = ui->wSlider->value(); //默认741
     int tmpRate = ui->liveRate->value(); //1-100的整数，默认20
-    int tmpSpeed = ui->speedSlider->value(); //1-1000的整数，表示一秒刷新几次，默认100
+    int tmpSpeed = ui->speedSlider->value(); //1-100的整数，默认为91
     int tmpGridSize = ui->gridSlider->value(); // 格点大小，1-30，默认为5
 
     if (tmpA >= tmpB || tmpB >= tmpC || tmpA >= tmpC) {
@@ -36,7 +36,7 @@ void setting::on_buttonBox_accepted()
     Parent->ui->widget->born = tmpB;
     Parent->ui->widget->many = tmpC;
     Parent->ui->widget->ratio = 1.0*tmpRate/100;
-    Parent->ui->widget->passTime = 1000 / tmpSpeed; //几毫秒刷新一次，默认10
+    Parent->ui->widget->passTime = 101-tmpSpeed; //几毫秒刷新一次，默认10ms
     Parent->ui->widget->gridSize = tmpGridSize;
     Parent->ui->widget->resize(tmpW, tmpH); // resize()函数：先宽后高
     if (flag)
@@ -48,10 +48,11 @@ void setting::on_buttonBox_accepted()
 
 
 void setting::init() {
+    // 一些超参数（不是）
     ui->hSlider->setValue(561);
     ui->wSlider->setValue(741);
     ui->liveRate->setValue(20);
-    ui->speedSlider->setValue(100);
+    ui->speedSlider->setValue(91);
     ui->fewBox->setValue(1);
     ui->bornBox->setValue(3);
     ui->manyBox->setValue(4);

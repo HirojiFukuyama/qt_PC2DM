@@ -143,13 +143,16 @@
        <number>1</number>
       </property>
       <property name="maximum">
-       <number>1000</number>
+       <number>100</number>
       </property>
       <property name="singleStep">
-       <number>10</number>
+       <number>1</number>
+      </property>
+      <property name="pageStep">
+       <number>1</number>
       </property>
       <property name="value">
-       <number>100</number>
+       <number>91</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>

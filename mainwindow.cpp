@@ -43,7 +43,7 @@ void MainWindow::on_pushButton_5_clicked()
     d->ui->hSlider->setValue(ui->widget->height());
     d->ui->wSlider->setValue(ui->widget->width());
     d->ui->liveRate->setValue(ui->widget->ratio*100);
-    d->ui->speedSlider->setValue(1000/ui->widget->passTime);
+    d->ui->speedSlider->setValue(101-(ui->widget->passTime));
     d->ui->fewBox->setValue(ui->widget->few);
     d->ui->bornBox->setValue(ui->widget->born);
     d->ui->manyBox->setValue(ui->widget->many);
