@@ -2,6 +2,9 @@
 #include "mainwindow.h"
 #include <QPainter>
 #include "ui_mainwindow.h"
+#include <QPoint>
+#include <QMouseEvent>
+
 const int gridSize = 5;
 const int CEN_W = 401;
 const int CEN_H = 361;
@@ -22,6 +25,8 @@ gameWig::gameWig(QWidget *parent) : QWidget(parent)
         }
     cen_w = CEN_W;
     cen_h = CEN_H;
+
+    connect(this, SIGNAL(clicked()), this, SLOT(mouseClicked()));
 }
 
 void gameWig::init() {
@@ -100,4 +105,24 @@ void gameWig::evolve() {
             value[i][j] = tmpVal[i][j];
         }
     }
+}
+
+
+void gameWig::mouseReleaseEvent(QMouseEvent *e) {
+    if (mousePos == QPoint(e->x(), e->y()))
+        emit clicked();
+}
+
+
+void gameWig::mousePressEvent(QMouseEvent *e) {
+    mousePos = QPoint(e->x(), e->y());
+}
+
+// 反转颜色
+void gameWig::mouseClicked() {
+    int i = mousePos.x()/gridSize;
+    int j = mousePos.y()/gridSize;
+    value[i][j] = (value[i][j]+1)%2;
+
+    update();
 }

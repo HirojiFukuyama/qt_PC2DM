@@ -14,6 +14,7 @@ public:
     int few = 1, born = 3, many = 4;
     MainWindow* Parent;
     int cen_w, cen_h;
+    QPoint mousePos;
 
     explicit gameWig(QWidget *parent = 0);
     int hGrid, wGrid;
@@ -27,7 +28,14 @@ public:
 
 
 signals:
+    void clicked();
 
+protected:
+    virtual void mouseReleaseEvent(QMouseEvent* e);
+    virtual void mousePressEvent(QMouseEvent* e);
+
+public slots:
+    void mouseClicked();
 };
 
 #endif // GAMEWIG_H

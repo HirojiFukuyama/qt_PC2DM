@@ -37,6 +37,7 @@ void MainWindow::on_pushButton_7_clicked()
 // 自定义设置
 void MainWindow::on_pushButton_5_clicked()
 {
+    ui->widget->flag = false;
     setting* d = new setting(this);
     d->setWindowTitle("自定义设置");
     // 现在的参数
@@ -76,23 +77,24 @@ void MainWindow::on_pushButton_3_clicked()
 // 清空画面
 void MainWindow::on_pushButton_4_clicked()
 {
+    ui->widget->flag = false;
     for (int i = 0; i < 1505; ++i) {
         for (int j = 0; j < 1505; ++j) {
             ui->widget->value[i][j] = 0;
         }
     }
-    ui->widget->flag = false;
     ui->widget->update();
 }
 
 // 随机生成画面
 void MainWindow::on_pushButton_6_clicked()
 {
+    ui->widget->flag = false;
     ui->widget->init();
     ui->widget->update();
 }
 
-// 停下
+// 暂停
 void MainWindow::on_pushButton_2_clicked()
 {
     if (!ui->widget->flag)

@@ -6,6 +6,8 @@ This is a course project for ***Practice of Programming in C/C++*** in Peking Un
 
 __Author__: 所以爱会消失对不队
 
+## 简介
+
 ## 功能实现
 - [x] 基本游戏界面及窗口
 - [x] 随机初始化画布
@@ -14,6 +16,7 @@ __Author__: 所以爱会消失对不队
 - [x] 持续演化功能
 - [x] 停止持续演化功能
 - [x] 自定义规则功能
+- [x] 修改单个细胞功能
 - [ ] 特殊图案功能
 - [ ] 菜单、帮助页面
 - [ ] 更多玩法...
