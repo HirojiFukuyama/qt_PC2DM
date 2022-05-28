@@ -1,5 +1,7 @@
 # QT Game of Life
 
+中文名：[康威生命游戏](https://baike.baidu.com/item/康威生命游戏/22668799)
+
 This is a course project for ***Practice of Programming in C/C++*** in Peking University.
 
 __Author__: 所以爱会消失对不队
@@ -21,7 +23,7 @@ __Author__: 所以爱会消失对不队
 
 ## Demo
 
-![](resource/demo1.gif)
+![](resource/demo2.gif)
 
 - - -
 ## 小组成员：
