@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>-&gt;</string>
+     <string>=&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
@@ -131,6 +131,19 @@
      </rect>
     </property>
    </widget>
+   <widget class="QLabel" name="evolving">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>60</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>演化中...</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -138,7 +151,7 @@
      <x>0</x>
      <y>0</y>
      <width>810</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

@@ -9,10 +9,6 @@
 #include <QMessageBox>
 #include "ui_setting.h"
 
-const int gridSize = 5;
-
-int tmpdot[258][258] = {};
-int mapsize, rulenum;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->widget->Parent = this;
+    ui->evolving->hide();
 }
 
 MainWindow::~MainWindow()
@@ -31,6 +28,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_7_clicked()
 {
     ui->widget->flag = false;
+    ui->evolving->hide();
     close();
 }
 
@@ -38,6 +36,7 @@ void MainWindow::on_pushButton_7_clicked()
 void MainWindow::on_pushButton_5_clicked()
 {
     ui->widget->flag = false;
+    ui->evolving->hide();
     setting* d = new setting(this);
     d->setWindowTitle("自定义设置");
     // 现在的参数
@@ -48,8 +47,9 @@ void MainWindow::on_pushButton_5_clicked()
     d->ui->fewBox->setValue(ui->widget->few);
     d->ui->bornBox->setValue(ui->widget->born);
     d->ui->manyBox->setValue(ui->widget->many);
+    d->ui->gridSlider->setValue(ui->widget->gridSize);
+    d->flag = false;
 
-    d->setModal(true);
     d->show();
 }
 
@@ -57,6 +57,7 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_clicked()
 {
     ui->widget->flag = true;
+    ui->evolving->show();
     while(ui->widget->flag) {
         QTime time;
         time.start();
@@ -78,6 +79,7 @@ void MainWindow::on_pushButton_3_clicked()
 void MainWindow::on_pushButton_4_clicked()
 {
     ui->widget->flag = false;
+    ui->evolving->hide();
     for (int i = 0; i < 1505; ++i) {
         for (int j = 0; j < 1505; ++j) {
             ui->widget->value[i][j] = 0;
@@ -90,6 +92,7 @@ void MainWindow::on_pushButton_4_clicked()
 void MainWindow::on_pushButton_6_clicked()
 {
     ui->widget->flag = false;
+    ui->evolving->hide();
     ui->widget->init();
     ui->widget->update();
 }
@@ -100,5 +103,6 @@ void MainWindow::on_pushButton_2_clicked()
     if (!ui->widget->flag)
         QMessageBox::warning(NULL, "warning", "当前未在演化中！", QMessageBox::Yes, QMessageBox::Yes);
     ui->widget->flag = false;
+    ui->evolving->hide();
 }
 

@@ -25,6 +25,7 @@ void setting::on_buttonBox_accepted()
     int tmpW = ui->wSlider->value(); //默认741
     int tmpRate = ui->liveRate->value(); //1-100的整数，默认20
     int tmpSpeed = ui->speedSlider->value(); //1-1000的整数，表示一秒刷新几次，默认100
+    int tmpGridSize = ui->gridSlider->value(); // 格点大小，1-30，默认为5
 
     if (tmpA >= tmpB || tmpB >= tmpC || tmpA >= tmpC) {
         QMessageBox::warning(NULL, "warning", "规则设置错误！", QMessageBox::Yes, QMessageBox::Yes);
@@ -36,11 +37,13 @@ void setting::on_buttonBox_accepted()
     Parent->ui->widget->many = tmpC;
     Parent->ui->widget->ratio = 1.0*tmpRate/100;
     Parent->ui->widget->passTime = 1000 / tmpSpeed; //几毫秒刷新一次，默认10
+    Parent->ui->widget->gridSize = tmpGridSize;
     Parent->ui->widget->resize(tmpW, tmpH); // resize()函数：先宽后高
-    Parent->ui->widget->init();
+    if (flag)
+        Parent->ui->widget->init();
     Parent->ui->widget->update();
 
-    delete this;
+    delete(this);
 }
 
 
@@ -52,10 +55,53 @@ void setting::init() {
     ui->fewBox->setValue(1);
     ui->bornBox->setValue(3);
     ui->manyBox->setValue(4);
+    ui->gridSlider->setValue(5);
 }
 
 void setting::on_pushButton_clicked()
 {
     init();
+}
+
+
+void setting::on_hSlider_valueChanged(int value)
+{
+    flag = true;
+}
+
+
+void setting::on_wSlider_valueChanged(int value)
+{
+    flag = true;
+}
+
+
+void setting::on_liveRate_valueChanged(int value)
+{
+    flag = true;
+}
+
+
+void setting::on_gridSlider_valueChanged(int value)
+{
+    flag = true;
+}
+
+
+void setting::on_fewBox_valueChanged(int arg1)
+{
+    flag = true;
+}
+
+
+void setting::on_bornBox_valueChanged(int arg1)
+{
+    flag = true;
+}
+
+
+void setting::on_manyBox_valueChanged(int arg1)
+{
+    flag = true;
 }
 

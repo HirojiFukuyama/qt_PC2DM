@@ -5,17 +5,14 @@
 #include <QPoint>
 #include <QMouseEvent>
 
-const int gridSize = 5;
 const int CEN_W = 401;
 const int CEN_H = 361;
 
 gameWig::gameWig(QWidget *parent) : QWidget(parent)
 {
-    hGrid = height()/gridSize;
-    wGrid = width()/gridSize;
     for(int i=1;i<=1500;i++)
         for(int j=1;j<=1500;j++) {
-            double tmp = rand() % 1000 * 1.0/ float(1000); //1000决定精度，三位小数
+            double tmp = rand() % 1000 * 1.0 / float(1000); //1000决定精度，三位小数
             if (tmp <= ratio) {
                 // 生成细胞
                 value[i][j] = 1;
@@ -32,7 +29,7 @@ gameWig::gameWig(QWidget *parent) : QWidget(parent)
 void gameWig::init() {
     for(int i=1;i<=1500;i++)
         for(int j=1;j<=1500;j++) {
-            double tmp = rand() % 1000 * 1.0/ float(1000); //1000决定精度，三位小数
+            double tmp = rand() % 1000 * 1.0 / float(1000); //1000决定精度，三位小数
             if (tmp <= ratio) {
                 // 生成细胞
                 value[i][j] = 1;
@@ -120,8 +117,8 @@ void gameWig::mousePressEvent(QMouseEvent *e) {
 
 // 反转颜色
 void gameWig::mouseClicked() {
-    int i = mousePos.x()/gridSize;
-    int j = mousePos.y()/gridSize;
+    int i = mousePos.x()/gridSize+1;
+    int j = mousePos.y()/gridSize+1;
     value[i][j] = (value[i][j]+1)%2;
 
     update();
