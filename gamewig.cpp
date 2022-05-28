@@ -1,7 +1,10 @@
 #include "gamewig.h"
+#include "mainwindow.h"
 #include <QPainter>
+#include "ui_mainwindow.h"
 const int gridSize = 5;
-const int RATIO = 5;
+const int CEN_W = 401;
+const int CEN_H = 361;
 
 gameWig::gameWig(QWidget *parent) : QWidget(parent)
 {
@@ -9,27 +12,30 @@ gameWig::gameWig(QWidget *parent) : QWidget(parent)
     wGrid = width()/gridSize;
     for(int i=1;i<=1500;i++)
         for(int j=1;j<=1500;j++) {
-            int tmp = rand()%RATIO;
-            if (tmp == 1) {
-                // 1/RATIO 生成细胞
+            double tmp = rand() % 1000 * 1.0/ float(1000); //1000决定精度，三位小数
+            if (tmp <= ratio) {
+                // 生成细胞
                 value[i][j] = 1;
             }
             else
                 value[i][j] = 0;
         }
+    cen_w = CEN_W;
+    cen_h = CEN_H;
 }
 
 void gameWig::init() {
     for(int i=1;i<=1500;i++)
         for(int j=1;j<=1500;j++) {
-            int tmp = rand()%RATIO;
-            if (tmp == 1) {
-                // 1/RATIO 生成细胞
+            double tmp = rand() % 1000 * 1.0/ float(1000); //1000决定精度，三位小数
+            if (tmp <= ratio) {
+                // 生成细胞
                 value[i][j] = 1;
             }
             else
                 value[i][j] = 0;
         }
+    Parent->ui->widget->setGeometry(cen_w-width()/2,cen_h-height()/2,width(),height());
 }
 
 
@@ -76,13 +82,13 @@ void gameWig::evolve() {
     for (int i = 1; i <= 1500; ++i) {
         for (int j = 1; j <= 1500; ++j) {
             int tmp = sum(i,j);
-            if (tmp <= 1) {
+            if (tmp <= few) {
                 if (value[i][j]) tmpVal[i][j] = 0;
             }
-            else if (tmp == 3) {
+            else if (tmp == born) {
                 if (!value[i][j]) tmpVal[i][j] = 1;
             }
-            else if (tmp >= 4) {
+            else if (tmp >= many) {
                 if (value[i][j]) tmpVal[i][j] = 0;
             }
         }

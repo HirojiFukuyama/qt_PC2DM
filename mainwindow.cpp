@@ -7,9 +7,9 @@
 #include <QThread>
 #include <QTime>
 #include <QMessageBox>
+#include "ui_setting.h"
 
-const int gridSize = 20;
-int passTime = 10; // ms
+const int gridSize = 5;
 
 int tmpdot[258][258] = {};
 int mapsize, rulenum;
@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->widget->Parent = this;
 }
 
 MainWindow::~MainWindow()
@@ -33,11 +34,20 @@ void MainWindow::on_pushButton_7_clicked()
     close();
 }
 
-
+// 自定义设置
 void MainWindow::on_pushButton_5_clicked()
 {
-    QDialog* d = new setting();
+    setting* d = new setting(this);
     d->setWindowTitle("自定义设置");
+    // 现在的参数
+    d->ui->hSlider->setValue(ui->widget->height());
+    d->ui->wSlider->setValue(ui->widget->width());
+    d->ui->liveRate->setValue(ui->widget->ratio*100);
+    d->ui->speedSlider->setValue(1000/ui->widget->passTime);
+    d->ui->fewBox->setValue(ui->widget->few);
+    d->ui->bornBox->setValue(ui->widget->born);
+    d->ui->manyBox->setValue(ui->widget->many);
+
     d->setModal(true);
     d->show();
 }
@@ -49,7 +59,7 @@ void MainWindow::on_pushButton_clicked()
     while(ui->widget->flag) {
         QTime time;
         time.start();
-        while (time.elapsed() < passTime)
+        while (time.elapsed() < ui->widget->passTime)
             QCoreApplication::processEvents();
         ui->widget->evolve();
         ui->widget->update();
@@ -86,7 +96,7 @@ void MainWindow::on_pushButton_6_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     if (!ui->widget->flag)
-        QMessageBox::warning(NULL, "warning", " 当前未在演化中", QMessageBox::Yes, QMessageBox::Yes);
+        QMessageBox::warning(NULL, "warning", "当前未在演化中！", QMessageBox::Yes, QMessageBox::Yes);
     ui->widget->flag = false;
 }
 
