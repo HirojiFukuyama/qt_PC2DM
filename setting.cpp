@@ -43,7 +43,7 @@ void setting::on_buttonBox_accepted()
         Parent->ui->widget->init();
     Parent->ui->widget->update();
 
-    delete(this);
+    delete this;
 }
 
 

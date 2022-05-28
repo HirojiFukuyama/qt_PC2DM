@@ -32,7 +32,6 @@ private slots:
 
     void on_gridSlider_valueChanged(int value);
 
-
     void on_fewBox_valueChanged(int arg1);
 
     void on_bornBox_valueChanged(int arg1);
