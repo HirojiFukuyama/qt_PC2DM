@@ -8,6 +8,7 @@
 #include <QTime>
 #include <QMessageBox>
 #include "ui_setting.h"
+#include "startwindow.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -29,7 +30,9 @@ void MainWindow::on_pushButton_7_clicked()
 {
     ui->widget->flag = false;
     ui->evolving->hide();
+    emit execReg();
     close();
+    delete this;
 }
 
 // 自定义设置
@@ -39,6 +42,7 @@ void MainWindow::on_pushButton_5_clicked()
     ui->evolving->hide();
     setting* d = new setting(this);
     d->setWindowTitle("自定义设置");
+    d->setWindowModality(Qt::WindowModal);
     // 现在的参数
     d->ui->hSlider->setValue(ui->widget->height());
     d->ui->wSlider->setValue(ui->widget->width());

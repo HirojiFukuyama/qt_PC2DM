@@ -52,7 +52,7 @@ void gameWig::paintEvent(QPaintEvent *) {
         {
             painter.drawLine(0,j*gridSize,width()*gridSize,j*gridSize);
         }
-        painter.setBrush(QBrush(Qt::black,Qt::SolidPattern));
+        painter.setBrush(QBrush(color,Qt::SolidPattern));
         for(int i=1;i<=height();i++)
             for(int j=1;j<=width();j++)
                 if(value[i][j])

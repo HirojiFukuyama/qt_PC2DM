@@ -20,7 +20,7 @@ public:
 
 
 signals:
-    void execReg();
+    void execReg(); // 退出主窗口后重新显示开始窗口
 
 private slots:
     void on_pushButton_7_clicked();

@@ -17,7 +17,9 @@ StartWindow::~StartWindow()
 }
 
 void StartWindow::showMainWindow() {
+    this->hide();
     MainWindow* w = new MainWindow(this);
+    connect(w, SIGNAL(execReg()), this, SLOT(show()));
     w->setWindowTitle("游戏界面");
     w->show();
 }

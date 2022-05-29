@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 #include <QMessageBox>
 #include <ui_mainwindow.h>
+#include <QColorDialog>
 
 setting::setting(MainWindow *parent) :
     QDialog(parent), Parent(parent),
@@ -57,6 +58,7 @@ void setting::init() {
     ui->bornBox->setValue(3);
     ui->manyBox->setValue(4);
     ui->gridSlider->setValue(5);
+    Parent->ui->widget->color = Qt::black;
 }
 
 void setting::on_pushButton_clicked()
@@ -104,5 +106,12 @@ void setting::on_bornBox_valueChanged(int arg1)
 void setting::on_manyBox_valueChanged(int arg1)
 {
     flag = true;
+}
+
+// 改变颜色
+void setting::on_pushButton_2_clicked()
+{
+    QColor tmpColor = QColorDialog::getColor(Parent->ui->widget->color, this, tr("选择格点颜色"), QColorDialog::ShowAlphaChannel);
+    Parent->ui->widget->color = tmpColor;
 }
 

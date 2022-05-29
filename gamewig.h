@@ -16,6 +16,7 @@ public:
     MainWindow* Parent;
     int cen_w, cen_h;
     QPoint mousePos;
+    QColor color = Qt::black;
 
     explicit gameWig(QWidget *parent = 0);
     int value[1505][1505];

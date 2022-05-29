@@ -1,5 +1,7 @@
 # QT Game of Life
 
+A.K.A. **Parallel Computer for 2-Dimension Models (PC2DM)**
+
 中文名：[康威生命游戏](https://baike.baidu.com/item/康威生命游戏/22668799)
 
 This is a course project for ***Practice of Programming in C/C++*** in Peking University.
@@ -27,7 +29,7 @@ __Author__: 所以爱会消失对不队
 
 ## Demo
 
-![](resource/demo4.gif)
+![](resource/demo5.gif)
 
 - - -
 ## 小组成员：
