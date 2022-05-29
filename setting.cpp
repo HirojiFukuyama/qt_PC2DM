@@ -29,7 +29,10 @@ void setting::on_buttonBox_accepted()
     int tmpGridSize = ui->gridSlider->value(); // 格点大小，1-30，默认为5
 
     if (tmpA >= tmpB || tmpB >= tmpC || tmpA >= tmpC) {
-        QMessageBox::warning(NULL, "warning", "规则设置错误！", QMessageBox::Yes, QMessageBox::Yes);
+        QApplication::setQuitOnLastWindowClosed(false);
+        QMessageBox::warning(NULL, "warning", "规则设置错误！", QMessageBox::Yes);
+        QApplication::setQuitOnLastWindowClosed(true);
+
         return;
     }
 

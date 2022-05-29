@@ -104,8 +104,11 @@ void MainWindow::on_pushButton_6_clicked()
 // 暂停
 void MainWindow::on_pushButton_2_clicked()
 {
-    if (!ui->widget->flag)
-        QMessageBox::warning(NULL, "warning", "当前未在演化中！", QMessageBox::Yes, QMessageBox::Yes);
+    if (!ui->widget->flag) {
+        QApplication::setQuitOnLastWindowClosed(false);
+        QMessageBox::warning(NULL, "warning", "当前未在演化中！", QMessageBox::Yes);
+        QApplication::setQuitOnLastWindowClosed(true);
+    }
     ui->widget->flag = false;
     ui->evolving->hide();
 }
