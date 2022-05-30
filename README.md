@@ -1,6 +1,6 @@
 # QT Game of Life
 
-A.K.A. **Parallel Computer for 2-Dimension Models (PC2DM)**
+A.K.A. **Parallel Computer for 2-Dimensional Models (PC2DM)**
 
 中文名：[康威生命游戏](https://baike.baidu.com/item/康威生命游戏/22668799)
 
