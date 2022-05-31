@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include "ui_setting.h"
 #include "startwindow.h"
+#include <QCloseEvent>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -113,3 +114,7 @@ void MainWindow::on_pushButton_2_clicked()
     ui->evolving->hide();
 }
 
+
+void MainWindow::closeEvent(QCloseEvent *event) {
+    emit execReg();
+}
