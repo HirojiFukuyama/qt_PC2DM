@@ -9,6 +9,7 @@ class gameWig : public QWidget
     Q_OBJECT
 public:
     bool flag = false;
+    int N = 2; // N种状态
     double ratio = 0.2; //0-1浮点数
     int passTime = 10; // ms
     int few = 1, born = 3, many = 4;

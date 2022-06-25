@@ -119,7 +119,7 @@ void gameWig::mousePressEvent(QMouseEvent *e) {
 void gameWig::mouseClicked() {
     int i = mousePos.x()/gridSize+1;
     int j = mousePos.y()/gridSize+1;
-    value[i][j] = (value[i][j]+1)%2;
+    value[i][j] = (value[i][j]+1)%N;
 
     update();
 }

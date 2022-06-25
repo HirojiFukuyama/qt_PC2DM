@@ -31,9 +31,7 @@ void MainWindow::on_pushButton_7_clicked()
 {
     ui->widget->flag = false;
     ui->evolving->hide();
-    emit execReg();
     close();
-    delete this;
 }
 
 // 自定义设置

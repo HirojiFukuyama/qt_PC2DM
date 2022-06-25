@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QLabel>
 #include <QPainter>
+#include <mainwindow.h>
 
 namespace Ui {
 class StartWindow;
@@ -22,6 +23,10 @@ private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_4_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
 
 private:
     Ui::StartWindow *ui;

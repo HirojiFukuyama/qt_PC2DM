@@ -10,6 +10,8 @@ CONFIG += c++11
 
 SOURCES += \
     gamewig.cpp \
+    help.cpp \
+    info.cpp \
     main.cpp \
     mainwindow.cpp \
     setting.cpp \
@@ -17,11 +19,15 @@ SOURCES += \
 
 HEADERS += \
     gamewig.h \
+    help.h \
+    info.h \
     mainwindow.h \
     setting.h \
     startwindow.h
 
 FORMS += \
+    help.ui \
+    info.ui \
     mainwindow.ui \
     setting.ui \
     startwindow.ui
