@@ -404,7 +404,7 @@
     <item>
      <widget class="QLabel" name="label_10">
       <property name="text">
-       <string>状态数</string>
+       <string>千丝万缕 (number of states)</string>
       </property>
      </widget>
     </item>
@@ -421,7 +421,7 @@
     <item>
      <widget class="QLabel" name="label_12">
       <property name="text">
-       <string>自动死亡</string>
+       <string>凛冬已至 (time to die automatically)</string>
       </property>
      </widget>
     </item>
@@ -438,7 +438,7 @@
     <item>
      <widget class="QLabel" name="label_13">
       <property name="text">
-       <string>死区(dead zone)</string>
+       <string>不毛之地 (time to be a dead zone)</string>
       </property>
      </widget>
     </item>

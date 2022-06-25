@@ -42,7 +42,7 @@ void MainWindow::on_pushButton_5_clicked()
     setting* d = new setting(this);
     d->setWindowTitle("自定义设置");
     d->setWindowModality(Qt::WindowModal);
-    // 现在的参数
+    // 将现在的参数传入setting
     d->ui->hSlider->setValue(ui->widget->height());
     d->ui->wSlider->setValue(ui->widget->width());
     d->ui->liveRate->setValue(ui->widget->ratio*100);
@@ -52,6 +52,11 @@ void MainWindow::on_pushButton_5_clicked()
     d->ui->manyBox->setValue(ui->widget->many);
     d->ui->gridSlider->setValue(ui->widget->gridSize);
     d->flag = false;
+    //高级设置
+    d->ui->checkBox->setChecked(ui->widget->isHigher);
+    d->ui->num_state->setValue(ui->widget->N);
+    d->ui->auto_dead->setValue(ui->widget->autoDead);
+    d->ui->dead_zone->setValue(ui->widget->deadZone);
 
     d->show();
 }

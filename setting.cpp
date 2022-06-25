@@ -32,6 +32,11 @@ void setting::on_buttonBox_accepted()
     int tmpSpeed = ui->speedSlider->value(); //1-100的整数，默认为91
     int tmpGridSize = ui->gridSlider->value(); // 格点大小，1-30，默认为5
 
+    //高级设置
+    int tmpN = ui->num_state->value();
+    int tmpAutoDead = ui->auto_dead->value();
+    int tmpDeadZone = ui->dead_zone->value();
+
     if (tmpA >= tmpB || tmpB >= tmpC || tmpA >= tmpC) {
         QApplication::setQuitOnLastWindowClosed(false);
         QMessageBox::warning(NULL, "warning", "规则设置错误！", QMessageBox::Yes);
@@ -47,6 +52,20 @@ void setting::on_buttonBox_accepted()
     Parent->ui->widget->passTime = 101-tmpSpeed; //几毫秒刷新一次，默认10ms
     Parent->ui->widget->gridSize = tmpGridSize;
     Parent->ui->widget->resize(tmpW, tmpH); // resize()函数：先宽后高
+
+    //高级设置
+    Parent->ui->widget->isHigher = ui->checkBox->isChecked();
+    Parent->ui->widget->N = tmpN;
+    Parent->ui->widget->autoDead = tmpAutoDead;
+    Parent->ui->widget->deadZone = tmpDeadZone;
+
+    // 如果预设图案被选中，就不初始化
+    if (ui->none->isChecked() || ui->glider->isChecked() || ui->aircraft_carrier->isChecked()
+            || ui->spaceship->isChecked() || ui->frog->isChecked() || ui->turtle->isChecked()
+            || ui->moth->isChecked() || ui->joker->isChecked()) {
+        flag = false;
+    }
+
     if (flag)
         Parent->ui->widget->init();
     Parent->ui->widget->update();
@@ -66,6 +85,11 @@ void setting::init() {
     ui->manyBox->setValue(4);
     ui->gridSlider->setValue(5);
     Parent->ui->widget->color = Qt::black;
+    // 高级设置
+    ui->checkBox->setChecked(false);
+    ui->num_state->setValue(2);
+    ui->auto_dead->setValue(2);
+    ui->dead_zone->setValue(0);
 }
 
 void setting::on_pushButton_clicked()
@@ -127,17 +151,20 @@ void setting::on_none_clicked()
 // 以下是一些预设图案
 void setting::on_glider_clicked()
 {
+    flag = false;
     memset(Parent->ui->widget->value, 0, sizeof(Parent->ui->widget->value));
-    Parent->ui->widget->value[X][Y] = 1;
-    Parent->ui->widget->value[X][Y+1] = 1;
-    Parent->ui->widget->value[X][Y+2] = 1;
-    Parent->ui->widget->value[X+2][Y+1] = 1;
-    Parent->ui->widget->value[X+1][Y+2] = 1;
+    int move[5][2] = {
+        {0,0},{1,0},{2,0},{2,-1},{1,-2}
+    };
+    for (int i = 0; i < 5; ++i) {
+        Parent->ui->widget->value[X+move[i][1]][Y+move[i][0]] = 1;
+    }
 }
 
 
 void setting::on_aircraft_carrier_clicked()
 {
+    flag = false;
     memset(Parent->ui->widget->value, 0, sizeof(Parent->ui->widget->value));
     int move[60][2] = {
         {0,0},{1,0},{0,1},{1,1},{5,2},{5,3},{10,-1},{10,-2},
@@ -158,6 +185,7 @@ void setting::on_aircraft_carrier_clicked()
 
 void setting::on_spaceship_clicked()
 {
+    flag = false;
     memset(Parent->ui->widget->value, 0, sizeof(Parent->ui->widget->value));
     int move[30][2] = {
         {0,0},{1,1},{1,2},{2,1},{2,2},{3,0},{4,2},{5,1},{5,2},
@@ -173,6 +201,7 @@ void setting::on_spaceship_clicked()
 
 void setting::on_frog_clicked()
 {
+    flag = false;
     memset(Parent->ui->widget->value, 0, sizeof(Parent->ui->widget->value));
     int move[94][2] = {
         {0,0},
@@ -202,6 +231,7 @@ void setting::on_frog_clicked()
 
 void setting::on_turtle_clicked()
 {
+    flag = false;
     memset(Parent->ui->widget->value, 0, sizeof(Parent->ui->widget->value));
     int move[52][2] = {
         {-1,9},
@@ -226,6 +256,7 @@ void setting::on_turtle_clicked()
 
 void setting::on_moth_clicked()
 {
+    flag = false;
     memset(Parent->ui->widget->value, 0, sizeof(Parent->ui->widget->value));
     int move[78][2] = {
         {-2,13},{-2,14},{-2,15},
@@ -255,6 +286,7 @@ void setting::on_moth_clicked()
 
 void setting::on_joker_clicked()
 {
+    flag = false;
     memset(Parent->ui->widget->value, 0, sizeof(Parent->ui->widget->value));
     int move[43][2] = {
         {0,12},{0,13},
@@ -272,5 +304,11 @@ void setting::on_joker_clicked()
     for (int i = 0; i < 43; ++i) {
         Parent->ui->widget->value[X+move[i][1]][Y+move[i][0]] = 1;
     }
+}
+
+
+void setting::on_num_state_valueChanged(int arg1)
+{
+    flag = true;
 }
 

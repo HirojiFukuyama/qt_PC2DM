@@ -54,6 +54,8 @@ private slots:
 
     void on_joker_clicked();
 
+    void on_num_state_valueChanged(int arg1);
+
 public:
     Ui::setting *ui;
 };
