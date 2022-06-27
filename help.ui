@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>420</width>
+    <height>404</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>260</y>
+     <x>60</x>
+     <y>360</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -32,10 +32,10 @@
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>41</y>
-     <width>256</width>
-     <height>201</height>
+     <x>25</x>
+     <y>21</y>
+     <width>371</width>
+     <height>321</height>
     </rect>
    </property>
    <property name="html">
@@ -43,7 +43,16 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;详见&lt;/span&gt;&lt;a href=&quot;https://kryptonite.work/qt_game_of_life&quot;&gt;&lt;span style=&quot; font-size:24pt; text-decoration: underline; color:#0068da;&quot;&gt;项目网站&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;h1 style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;基础规则&lt;/span&gt;&lt;/h1&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;在网格中，每一个格点有0，1两种状态，并在每一个时刻进行一次演化。每次演化中，对任一个格点，其新状态由原有状态即其周围的8个邻居的状态唯一决定。设置中包含稀疏(a)、繁殖(b)、拥挤(c)三个变量，若邻居中1的个数x不大于a或不小于c都会导致该格被置为0；若邻居中1的个数恰好等于b，则该格会被置为1；否则不变。&lt;/p&gt;
+&lt;h1 style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;预设图案&lt;/span&gt;&lt;/h1&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;这些图案都是基于预设规则（a=1,b=3,c=4）而预置的。&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;这些图案都有各自的稳定演化过程。其中除航空母舰外，其他的所有图案都将在各自的周期后以相同的结构移动一定距离；宇宙飞船能够清理飞行过程中路径旁的一些杂物；航空母舰则能周期性地发射出滑翔机。&lt;/p&gt;
+&lt;h1 style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;高级设置&lt;/span&gt;&lt;/h1&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;高级设置给出更复杂的自定义规则框架。&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;千丝万缕&lt;/span&gt;允许你添加更多的状态，从而制定更为复杂的规则；&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;凛冬已至&lt;/span&gt;规定每一个活细胞会在一定时间后自动消亡；&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;不毛之地&lt;/span&gt;则代表一个活细胞死亡后，该格在一定时间内不能重新产生活细胞。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

@@ -156,7 +156,7 @@ void gameWig::evolve() {
                         deadTime[i][j]++;
                     }
                 }
-                else if (tmp == N) {
+                else if (tmp == N-1) {
                     if (liveTime[i][j] > autoDead) {
                         //活得太久了，要死去
                         tmpVal[i][j] = 0;
