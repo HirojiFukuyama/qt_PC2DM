@@ -10,7 +10,11 @@
 
 本项目为北京大学**程序设计实习**课程的QT大作业。
 
-__作者__: 所以爱会消失对不队
+**作者**: 所以爱会消失对不队
+
+**Release版本下载链接**:
+- [Windows](https://disk.pku.edu.cn:443/link/EBC4CC30C8364810E20FD5385099C4BE): 访问密码 B6cN
+- [MacOS](https://disk.pku.edu.cn:443/link/2BC029E65F3899000718DB999B1B3D05): 访问密码 LqWd
 
 ## 简介
 
